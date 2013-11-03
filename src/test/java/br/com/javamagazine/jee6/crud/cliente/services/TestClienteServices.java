@@ -2,6 +2,7 @@ package br.com.javamagazine.jee6.crud.cliente.services;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import java.text.DateFormat;
@@ -144,6 +145,14 @@ public class TestClienteServices {
 			
 		}
 				
+	}
+	
+	@Test
+	public void testRemove() throws Exception {
+		Long idCliente = clienteServices.save(getCliente()).getId();
+		assertNotNull(clienteServices.findById(idCliente));
+		clienteServices.remove(idCliente);
+		assertNull(clienteServices.findById(idCliente));
 	}
 	
 
