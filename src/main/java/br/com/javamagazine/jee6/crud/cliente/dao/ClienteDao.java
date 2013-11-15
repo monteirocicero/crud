@@ -59,8 +59,8 @@ public class ClienteDao {
 		if (cliente.getId() != null) {
 			query.setParameter("id", cliente.getId());
 		}
+		query.setParameter("email", cliente.getEmail());
 		return ((Long) query.getSingleResult()).intValue() > 0;
 	}
 	
-
 }

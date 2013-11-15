@@ -1,0 +1,31 @@
+/** Diminui o tamanho das fontes do primefaces **/
+.ui-widget,.ui-widget .ui-widget {
+  font-size: 90% !important;
+}
+#page {
+  width: 1000px; margin: 0 auto;
+}
+.body {
+  margin-top: 20px;
+}
+.panel-listagem {
+  width: 950px; margin: 20px auto; text-align: center;
+}
+.table-listagem {
+  margin: 10px auto; width: 800px;
+}
+.table-busca {
+  margin: 0 auto;
+}
+.form-cadastro {
+  width: 950px; margin: 20px auto;
+}
+.form-cadastro-label {
+  font-weight: bold; width: 120px; padding: 2px; text-align: right;
+}
+.panel-telefones {
+  margin-top: 10px; width: 530px
+}
+.table-telefones {
+  margin-top: 5px; width: 450px;
+}

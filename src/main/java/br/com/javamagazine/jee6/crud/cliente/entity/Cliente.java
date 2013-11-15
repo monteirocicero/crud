@@ -11,6 +11,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
@@ -47,24 +48,8 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 	
-	public boolean addTelefone(ClienteTelefone clienteTelefone) {
-		if (telefones == null) {
-			telefones = new HashSet<ClienteTelefone>();
-		}
-		return telefones.add(clienteTelefone);
-	}
-	
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "cliente_telefone", joinColumns = @JoinColumn(name = "id_cliente"))
-	public Set<ClienteTelefone> getTelefones() {
-		if (telefones == null) {
-			telefones = new HashSet<ClienteTelefone>();
-		}
-		return telefones;
-	}
-
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -104,6 +89,22 @@ public class Cliente implements Serializable {
 	
 	public void setTelefones(Set<ClienteTelefone> telefones) {
 		this.telefones = telefones;
+	}
+	
+	public boolean addTelefone(ClienteTelefone clienteTelefone) {
+		if (telefones == null) {
+			telefones = new HashSet<ClienteTelefone>();
+		}
+		return telefones.add(clienteTelefone);
+	}
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "cliente_telefone", joinColumns = @JoinColumn(name = "id_cliente"))
+	public Set<ClienteTelefone> getTelefones() {
+		if (telefones == null) {
+			telefones = new HashSet<ClienteTelefone>();
+		}
+		return telefones;
 	}
 
 	@Override
